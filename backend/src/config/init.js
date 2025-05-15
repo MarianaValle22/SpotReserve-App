@@ -29,4 +29,4 @@ db.exec(`
   );
 `);
 
-console.log('Base de datos inicializada');
+console.log('Base de datos SQLite inicializada');
