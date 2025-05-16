@@ -10,10 +10,6 @@ jobs:
   test:
     runs-on: ubuntu-latest
 
-    defaults:
-      run:
-        working-directory: backend
-
     steps:
       - name: Clonar repositorio
         uses: actions/checkout@v3
@@ -25,6 +21,12 @@ jobs:
 
       - name: Instalar dependencias
         run: npm install
+        working-directory: backend
 
-      - name: Ejecutar pruebas
-        run: npx jest --forceExit
+      - name: Instalar Jest globalmente
+        run: npm install -g jest
+        working-directory: backend
+
+      - name: Ejecutar pruebas con Jest global
+        run: jest --forceExit
+        working-directory: backend
