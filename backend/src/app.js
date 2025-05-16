@@ -41,3 +41,4 @@ const reservaRoutes = require('./routes/reservaRoutes');
 app.use('/api/reservas', reservaRoutes);
 
 
+module.exports = app;
