@@ -10,6 +10,10 @@ jobs:
   test:
     runs-on: ubuntu-latest
 
+    defaults:
+      run:
+        working-directory: backend
+
     steps:
       - name: Clonar repositorio
         uses: actions/checkout@v3
@@ -21,8 +25,6 @@ jobs:
 
       - name: Instalar dependencias
         run: npm install
-        working-directory: ./backend
 
       - name: Ejecutar pruebas
         run: npm test
-        working-directory: ./backend
