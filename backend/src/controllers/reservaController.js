@@ -1,33 +1,29 @@
 const reservaModel = require('../models/reservaModel');
+const { crearReserva } = require('../factories/reservaFactory');
 
 function crear(req, res) {
   try {
-    const usuario_id = req.usuario.id;
-    const { espacio_id, fecha_inicio, fecha_fin } = req.body;
-
-    if (new Date(fecha_inicio) >= new Date(fecha_fin)) {
-        return res.status(400).json({ error: 'La fecha de inicio debe ser anterior a la fecha de fin' });
-    }
-
-
-    if (!espacio_id || !fecha_inicio || !fecha_fin) {
-      return res.status(400).json({ error: 'Datos incompletos' });
-    }
+    const datosReserva = crearReserva({
+      usuario_id: req.usuario.id,
+      espacio_id: req.body.espacio_id,
+      fecha_inicio: req.body.fecha_inicio,
+      fecha_fin: req.body.fecha_fin
+    });
 
     const conflictos = reservaModel.verificarDisponibilidad({
-        espacio_id,
-        fecha_inicio,
-        fecha_fin
+      espacio_id: datosReserva.espacio_id,
+      fecha_inicio: datosReserva.fecha_inicio,
+      fecha_fin: datosReserva.fecha_fin
     });
 
     if (conflictos.length > 0) {
-        return res.status(409).json({ error: 'Ese espacio ya está reservado en ese horario' });
+      return res.status(409).json({ error: 'Ese espacio ya está reservado en ese horario' });
     }
 
-    reservaModel.crearReserva({ usuario_id, espacio_id, fecha_inicio, fecha_fin });
+    reservaModel.crearReserva(datosReserva);
     res.status(201).json({ mensaje: 'Reserva creada correctamente' });
   } catch (error) {
-    res.status(500).json({ error: error.message });
+    res.status(400).json({ error: error.message });
   }
 }
 

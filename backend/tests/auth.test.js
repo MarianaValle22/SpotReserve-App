@@ -3,8 +3,8 @@ const app = require('../src/app');
 const db = require('../src/config/db');
 
 describe('Auth endpoints', () => {
-  const correo = 'jwt@test.com';
-  const contrasena = '123456';
+  const correo = 'cliente@test.com';
+  const contraseña = 'cliente12345';
   let token = '';
 
   beforeAll(() => {
@@ -13,9 +13,9 @@ describe('Auth endpoints', () => {
 
   test('Debe registrar un nuevo usuario', async () => {
     const res = await request(app).post('/api/auth/register').send({
-      nombre: 'JWT Test',
+      nombre: 'Cliente Test',
       correo,
-      contrasena
+      contraseña
     });
 
     expect(res.statusCode).toBe(201);
@@ -25,7 +25,7 @@ describe('Auth endpoints', () => {
   test('Debe iniciar sesión y devolver un token', async () => {
     const res = await request(app).post('/api/auth/login').send({
       correo,
-      contrasena
+      contraseña
     });
 
     expect(res.statusCode).toBe(200);

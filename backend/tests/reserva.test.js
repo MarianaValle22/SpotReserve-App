@@ -2,34 +2,37 @@ const db = require('../src/config/db');
 const reservaModel = require('../src/models/reservaModel');
 const userModel = require('../src/models/userModel');
 const espacioModel = require('../src/models/espacioModel');
+const bcrypt = require('bcrypt');
+
+// ✅ Contraseña encriptada
+const contraseña = bcrypt.hashSync('reserva123', 10);
 
 describe('Modelo de Reservas', () => {
   let usuarioId;
   let espacioId;
   let reservaId;
 
-    beforeAll(() => {
-        // Eliminar si ya existe un usuario con ese correo
-        db.prepare('DELETE FROM usuarios WHERE correo = ?').run('reserva@test.com');
+  beforeAll(() => {
+    // Eliminar si ya existe un usuario con ese correo
+    db.prepare('DELETE FROM usuarios WHERE correo = ?').run('reserva@test.com');
 
-        // Crear usuario de prueba
-        const user = userModel.crearUsuario({
-            nombre: 'Reserva Test',
-            correo: 'reserva@test.com',
-            contrasenaHasheada: 'hash',
-            rol: 'usuario',
-        });
-        usuarioId = user.lastInsertRowid;
-
-        // Crear espacio de prueba
-        const espacio = espacioModel.crearEspacio({
-            nombre: 'Espacio Test',
-            tipo: 'Sala',
-            capacidad: 10,
-        });
-        espacioId = espacio.lastInsertRowid;
+    // Crear usuario de prueba
+    const user = userModel.crearUsuario({
+      nombre: 'Reserva Test',
+      correo: 'reserva@test.com',
+      contraseña, // ✅ Campo correcto
+      rol: 'usuario',
     });
+    usuarioId = user.lastInsertRowid;
 
+    // Crear espacio de prueba
+    const espacio = espacioModel.crearEspacio({
+      nombre: 'Espacio Test',
+      tipo: 'Sala',
+      capacidad: 10,
+    });
+    espacioId = espacio.lastInsertRowid;
+  });
 
   test('Debe crear una nueva reserva', () => {
     const reserva = reservaModel.crearReserva({

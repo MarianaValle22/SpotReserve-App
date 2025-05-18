@@ -12,7 +12,7 @@ describe('Modelo de Usuario', () => {
     const nuevo = crearUsuario({
       nombre: 'Test',
       correo: testCorreo,
-      contrasenaHasheada: '123456',
+      contraseña: '123456',
       rol: 'usuario',
     });
 
