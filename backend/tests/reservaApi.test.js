@@ -3,14 +3,19 @@ const app = require('../src/app');
 const db = require('../src/config/db');
 
 describe('Endpoints de Reservas', () => {
-  const correo = 'apireserva@test.com';
-  const contrasena = '123456';
+  const correo = 'api@test.com';
+  const contraseña = 'api1234';
   let token = '';
   let espacioId = null;
 
   beforeAll(() => {
-    // Preparar usuario y espacio
+    // 1. Borrar reservas primero (tienen FK a usuarios y espacios)
+    db.prepare('DELETE FROM reservas').run();
+
+    // 2. Luego borra usuarios y espacios
     db.prepare('DELETE FROM usuarios WHERE correo = ?').run(correo);
+    db.prepare('DELETE FROM espacios WHERE nombre = ?').run('Espacio Test');
+
 
     const espacio = db.prepare(`
       INSERT INTO espacios (nombre, tipo, capacidad, estado)
@@ -23,10 +28,10 @@ describe('Endpoints de Reservas', () => {
     await request(app).post('/api/auth/register').send({
       nombre: 'API Tester',
       correo,
-      contrasena
+      contraseña
     });
 
-    const login = await request(app).post('/api/auth/login').send({ correo, contrasena });
+    const login = await request(app).post('/api/auth/login').send({ correo, contraseña });
     expect(login.statusCode).toBe(200);
     token = login.body.token;
   });
