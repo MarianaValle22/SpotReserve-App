@@ -3,6 +3,13 @@ import React from 'react';
 import { Home } from './pages/Home';
 //import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import './assets/styles/Carousel.css';
+import { Fut11 } from './layouts/Fut11.js';
+import { Fut8 } from './layouts/Fut8.js';
+import { Fut7 } from './layouts/Fut7.js';
+import { Fut5 } from './layouts/Fut5.js';
+
+
+
 
 
 //import { InfoHome } from './InfoHome';
@@ -11,6 +18,11 @@ import './assets/styles/Carousel.css';
 const AppRoutes= ()=>{
   let routes= useRoutes([
     { path: '/', element: <Home /> },
+    {path: '/Fut11', element: <Fut11 />},
+    {path: '/Fut8', element: <Fut8 />},
+    {path: '/Fut7', element: <Fut7 />},
+    {path: '/Fut5', element: <Fut5 />},
+
   ]
   )
   return routes

@@ -9,7 +9,7 @@ function TodoSearch({
 ){
   
   return (
-    <input placeholder="Que busca en Ardidas?"
+    <input placeholder="Que Necesitas?"
       className="TodoSearch"
       value={searchValue}
       onChange={(event)=> {

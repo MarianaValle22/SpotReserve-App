@@ -13,7 +13,7 @@ const Header = () => {
     <header className="header">
       <div className="logo">
         <img src={ArdidasImage} alt="Ardidas" />
-        <h1 className="ardidas"><a href="/">Ardidas</a></h1>
+        <h1 className="ardidas"><a href="/">SpotReserve</a></h1>
       </div>
       <div className="search-bar">
       
@@ -34,9 +34,9 @@ const Header = () => {
         </ul>
       </nav>
       <div className="user-actions">
-        <a href="#">Tiendas</a>
+        <a href="#"></a>
         <a href="/Acceder">Acceder</a>
-        <a href="#">Carrito</a>
+        <a href="#">contactanos</a>
       </div>
     </header>
     
