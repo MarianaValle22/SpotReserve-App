@@ -7,6 +7,8 @@ import { Fut11 } from './layouts/Fut11.js';
 import { Fut8 } from './layouts/Fut8.js';
 import { Fut7 } from './layouts/Fut7.js';
 import { Fut5 } from './layouts/Fut5.js';
+import { Torneos } from './layouts/Torneos.js';
+import { InfoNosotros } from './layouts/InfoNosotros.js';
 
 
 
@@ -22,6 +24,8 @@ const AppRoutes= ()=>{
     {path: '/Fut8', element: <Fut8 />},
     {path: '/Fut7', element: <Fut7 />},
     {path: '/Fut5', element: <Fut5 />},
+    {path: '/Torneos', element: <Torneos />},
+    {path: '/Nosotros', element: <InfoNosotros />},
 
   ]
   )

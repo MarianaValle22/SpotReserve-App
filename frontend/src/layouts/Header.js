@@ -1,7 +1,7 @@
 import React from 'react';
 //import './assets/styles/Header.css';
 import '../assets/styles/Header.css'
-import ArdidasImage from '../assets/img/Ardidas.jpeg';
+import ArdidasImage from '../assets/img/Logo.png';
 
 import { TodoSearch } from '../components/TodoSearch';
 
@@ -26,17 +26,17 @@ const Header = () => {
       </div>
       <nav className="navigation">
         <ul>
-            <li><a href="/fut11">Fut 11</a></li>
-            <li><a href="/fut8">Fut 8</a></li>
-            <li><a href="/fut7">Fut 7</a></li>
-            <li><a href="/fut5">Fut 5</a></li>
-            <li className="ofertas"><a href="/nosotros" className="highlight">Nosotros</a></li>
+            <li><a href="/fut11">Futbol</a></li>
+            <li><a href="/fut8">Salones</a></li>
+            <li><a href="/fut7">Coworking</a></li>
+            <li><a href="/fut5">Habitaciones</a></li>
+            <li className="ofertas"><a href="/torneos" className="highlight">torneos</a></li>
         </ul>
       </nav>
       <div className="user-actions">
         <a href="#"></a>
         <a href="/Acceder">Acceder</a>
-        <a href="#">contactanos</a>
+        <a href="/Nosotros">Nosotros</a>
       </div>
     </header>
     
