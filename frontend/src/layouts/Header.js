@@ -30,7 +30,7 @@ const Header = () => {
             <li><a href="/fut8">Salones</a></li>
             <li><a href="/fut7">Coworking</a></li>
             <li><a href="/fut5">Habitaciones</a></li>
-            <li className="ofertas"><a href="/torneos" className="highlight">torneos</a></li>
+            <li className="ofertas"><a href="/torneos" className="highlight">ofertas</a></li>
         </ul>
       </nav>
       <div className="user-actions">

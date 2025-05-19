@@ -1,8 +1,65 @@
 import React from 'react';
 import { Header } from '../layouts/Header';
 import ImageWithText from '../components/ImageWithText';
+import { SpaceCard } from '../components/SpaceCard';
+import '../assets/styles/SpaceCard.css';
 
-
+const spaces = [
+  {
+    name: "WorkHub Premium",
+    price: 50,
+    location: "Centro Financiero",
+    description: "Escritorios privados y salas de reuniones 4K"
+  },
+  {
+    name: "Innovation Space",
+    price: 40,
+    location: "Parque Tecnológico",
+    description: "Zona maker con impresoras 3D"
+  },
+  {
+    name: "Nómada Digital",
+    price: 30,
+    location: "Zona Bohemia",
+    description: "Terraza con vistas al mar y café ilimitado"
+  },
+  {
+    name: "Executive Lounge",
+    price: 70,
+    location: "Torre Corporativa",
+    description: "Acceso 24/7 y servicio de secretaría"
+  },
+  {
+    name: "Green Cowork",
+    price: 35,
+    location: "Eco Distrito",
+    description: "Espacios con jardines verticales y energía solar"
+  },
+  {
+    name: "Startup Factory",
+    price: 45,
+    location: "Polígono Industrial Sur",
+    description: "Mentorías incluidas y networking semanal"
+  },
+  {
+    name: "Silent Working",
+    price: 40,
+    location: "Zona Residencial Oeste",
+    description: "Ambiente ultra silencioso y cabinas privadas"
+  },
+  {
+    name: "Creative Lab",
+    price: 55,
+    location: "Distrito Diseño",
+    description: "Pantallas interactivas y equipo creativo"
+  },
+  {
+    name: "Urban Station",
+    price: 25,
+    location: "Centro Transportes",
+    description: "Acceso por horas con locker incluido"
+  }
+];
 function Fut7() {
     return (
       <>
@@ -25,10 +82,18 @@ function Fut7() {
             </>  
             </>
         }
-      />
-       </>
-    );
-  }
+              />
+                <div className="spaces-container">
+                <h2 className="section-title">Espacios Disponibles</h2>
+                <div className="spaces-grid">
+                  {spaces?.map((space, index) => ( // Validación opcional
+                    <SpaceCard key={index} space={space} />
+                  ))}
+                </div>
+              </div>
+               </>
+            );
+          }
   
   export {Fut7};
   

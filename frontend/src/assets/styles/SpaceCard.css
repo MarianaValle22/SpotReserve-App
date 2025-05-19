@@ -1,0 +1,109 @@
+/* Spaces.css */
+.spaces-container {
+  padding: 40px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.section-title {
+  text-align: center;
+  color: #2A5C82;
+  margin-bottom: 40px;
+  font-size: 2em;
+}
+
+.spaces-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+.space-card {
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+  min-height: 300px;
+  background: white;
+}
+
+.space-card:hover {
+  transform: translateY(-5px);
+}
+
+.card-content {
+  padding: 20px;
+  position: relative;
+  z-index: 1;
+  background: linear-gradient(to bottom, rgba(255,255,255,0.9), rgba(255,255,255,0.7));
+}
+
+.price {
+  color: #2A5C82;
+  font-size: 1.4em;
+  font-weight: bold;
+  margin: 10px 0;
+}
+
+.location {
+  color: #666;
+  font-size: 0.9em;
+}
+
+.card-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(42, 92, 130, 0.9);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.space-card:hover .card-overlay {
+  opacity: 1;
+}
+
+.overlay-content {
+  color: white;
+  text-align: center;
+}
+
+.reserve-btn {
+  background: #FF6B35;
+  color: white;
+  border: none;
+  padding: 12px 30px;
+  border-radius: 25px;
+  font-size: 1em;
+  cursor: pointer;
+  margin-top: 15px;
+  transition: background 0.3s ease;
+}
+
+.reserve-btn:hover {
+  background: #e65a2b;
+}
+
+@media (max-width: 768px) {
+  .spaces-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .space-card {
+    min-height: 250px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .spaces-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

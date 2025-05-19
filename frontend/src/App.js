@@ -9,6 +9,8 @@ import { Fut7 } from './layouts/Fut7.js';
 import { Fut5 } from './layouts/Fut5.js';
 import { Torneos } from './layouts/Torneos.js';
 import { InfoNosotros } from './layouts/InfoNosotros.js';
+import {Loging} from './components/Loging.js';
+import Register from './components/Register.js';
 
 
 
@@ -26,6 +28,8 @@ const AppRoutes= ()=>{
     {path: '/Fut5', element: <Fut5 />},
     {path: '/Torneos', element: <Torneos />},
     {path: '/Nosotros', element: <InfoNosotros />},
+    { path: '/Acceder', element: <Loging /> },
+    { path: '/Registro', element: <Register /> },
 
   ]
   )

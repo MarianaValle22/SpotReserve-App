@@ -1,9 +1,70 @@
+
 import React from 'react';
 import { Header } from '../layouts/Header';
 import ImageWithText from '../components/ImageWithText';
+import { SpaceCard } from '../components/SpaceCard';
+import '../assets/styles/SpaceCard.css'; // Asegúrate de que la ruta sea correcta
 
+  const spaces = [
+    {
+      name: "Campo Elite",
+      price: 120,
+      location: "Centro Deportivo Norte",
+      description: "Cancha profesional con césped natural y vestuarios"
+    },
+    {
+      name: "Estadio Moderno",
+      price: 150,
+      location: "Complejo Deportivo Sur",
+      description: "Iluminación LED y gradas para 200 espectadores"
+    },
+    {
+      name: "Arena Futbolera",
+      price: 100,
+      location: "Zona Deportiva Este",
+      description: "Superficie sintética de última generación"
+    },
+    {
+      name: "Cancha Premier",
+      price: 130,
+      location: "Parque Central",
+      description: "Vestuarios premium y sistema de sonido"
+    },
+    {
+      name: "Estrella Deportiva",
+      price: 110,
+      location: "Polideportivo Oeste",
+      description: "Césped híbrido y parking gratuito"
+    },
+    {
+      name: "Fútbol City",
+      price: 90,
+      location: "Distrito Deportivo",
+      description: "3 canchas disponibles simultáneamente"
+    },
+    {
+      name: "Gol Perfecto",
+      price: 140,
+      location: "Complejo Olímpico",
+      description: "Medidas FIFA y marcador electrónico"
+    },
+    {
+      name: "La Fortaleza",
+      price: 160,
+      location: "Área Premium Norte",
+      description: "Sector VIP y cafetería incluida"
+    },
+    {
+      name: "Deportes Total",
+      price: 95,
+      location: "Zona Residencial Sur",
+      description: "Ideal para torneos y eventos"
+    }
+  ];
 
 function Fut11() {
+
+
     return (
       <>
        <Header />
@@ -22,9 +83,18 @@ function Fut11() {
             </>
         }
       />
-       </>
-    );
-  }
+      <div className="spaces-container">
+        <h2 className="section-title">Espacios Disponibles</h2>
+        <div className="spaces-grid">
+          {spaces?.map((space, index) => ( // Validación opcional
+            <SpaceCard key={index} space={space} />
+          ))}
+        </div>
+      </div>
+
+    </>
+  );
+}
   
   export {Fut11};
   
